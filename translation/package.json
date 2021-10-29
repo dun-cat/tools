@@ -1,0 +1,29 @@
+{
+  "name": "translation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "rm": "rimraf dist",
+    "test": "npm run rm && npm run build:ts && node ./dist/test/index.js",
+    "build": "npm run rm && npm run build:ts",
+    "build:ts": "tsc -p ./tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.2.0",
+    "lodash": "^4.17.21",
+    "xlsx": "^0.17.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.176",
+    "@types/node": "^16.11.6",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.4"
+  }
+}
