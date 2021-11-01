@@ -18,10 +18,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "esModuleInterop":true,
-      "paths": {
-      "src/*": ["./src/*"],
-      "@tools": ["./src/index.ts"]
-    }, 
+    "esModuleInterop":true
   }
 }

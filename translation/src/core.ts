@@ -24,15 +24,15 @@ function walkJson(preKeyPath: string, json: Object, result: DSLData, visitor: (r
 
 const jsonToDSL = (jsonPaths: Source[]) => {
   const result: DSLData = {};
-  const visitor = (result: DSLData, currentKeyPath: string, value: string) => {
+  const visitor = ([result, currentKeyPath, value], index: number) => {
     if (typeof result[currentKeyPath] === 'undefined') {
-      result[currentKeyPath] = []
+      result[currentKeyPath] = new Array(jsonPaths.length).fill("")
     }
-    result[currentKeyPath].push(value);
+    result[currentKeyPath][index] = value;
   }
-  jsonPaths.forEach(({ path }) => {
+  jsonPaths.forEach(({ path }, index: number) => {
     const parsedJson = fse.readJsonSync(path);
-    walkJson('', parsedJson, result, visitor);
+    walkJson('', parsedJson, result, (...args) => visitor(args, index));
   });
   return result;
 }
