@@ -4,7 +4,6 @@ import _, { values } from 'lodash';
 import { DSLData, Source } from "../types";
 import { isEmpty, named } from "../utils";
 import { jsonToDSL } from "../core";
-import { locales } from '../locales';
 
 const doubleQuotation = (value: string) => {
   return `"${value}"`

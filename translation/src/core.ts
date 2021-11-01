@@ -1,3 +1,4 @@
+import xlsx from 'xlsx';
 import fse from "fs-extra";
 import { DSLData, Source } from './types';
 import { isEmpty } from './utils';
@@ -37,4 +38,12 @@ const jsonToDSL = (jsonPaths: Source[]) => {
   return result;
 }
 
-export { jsonToDSL };
+const xlsxToDSL = (sourceFile: string) => {
+  const workbook = xlsx.readFile(sourceFile);
+  const ws = workbook.Sheets[workbook.SheetNames[0]];
+  const data = xlsx.utils.sheet_to_json(ws);
+  console.log(data)
+  return data;
+}
+
+export { jsonToDSL, xlsxToDSL };

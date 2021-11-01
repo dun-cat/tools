@@ -37,6 +37,7 @@ function setup() {
       }
     });
 
+
   program.parse(process.argv);
 }
 

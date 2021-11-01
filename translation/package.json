@@ -10,7 +10,8 @@
         "lib": "npm run build",
         "i": "npm run build && npm install . -g",
         "rm": "rimraf dist",
-        "test": "node ./dist/bin/command.js export -s ./example/locales -t ./example/output -f myfile -ot excel",
+        "test:export": "node ./dist/bin/command.js export -s ./example/locales -t ./example/output -f myfile -ot excel",
+        "test:import": "npm run build && node ./dist/src/test/index.js",
         "build": "npm run rm && npm run build:ts",
         "build:ts": "tsc -p ./tsconfig.json"
     },
